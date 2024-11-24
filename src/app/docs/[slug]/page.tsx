@@ -27,6 +27,7 @@ async function getDocContent(slug: string) {
     const fileContent = await fs.readFile(filePath, "utf-8");
     return matter(fileContent);
   } catch (error) {
+    console.log(error, "getDocContent");
     return null;
   }
 }
