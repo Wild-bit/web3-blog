@@ -9,7 +9,6 @@ import { Suspense } from "react";
 import { remark } from "remark";
 import { visit } from "unist-util-visit";
 // import TableOfContents from "./components/TableOfContents";
-
 // 辅助函数：生成一致的 ID
 function generateId(text: string): string {
   return text
@@ -26,10 +25,10 @@ async function getTableOfContents(content: string) {
 
   const tree = await remark().parse(content);
 
-  visit(tree, "heading", (node: any) => {
+  visit(tree, "heading", (node) => {
     const text = node.children
-      .filter((child: any) => child.type === "text")
-      .map((child: any) => child.value)
+      .filter((child) => child.type === "text")
+      .map((child) => child.value)
       .join("");
 
     const id = generateId(text);
