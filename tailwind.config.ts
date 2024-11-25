@@ -1,18 +1,27 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+const config: Config = {
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "none",
+            color: "#333",
+            a: {
+              color: "#3182ce",
+              "&:hover": {
+                color: "#2c5282",
+              },
+            },
+          },
+        },
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [typography],
+};
+
+export default config;
