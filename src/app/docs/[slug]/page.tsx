@@ -78,7 +78,7 @@ async function DocContent({ slug }: { slug: string }) {
     notFound();
   }
 
-  const { data: frontMatter, content, toc } = doc;
+  const { data: frontMatter, content } = doc;
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -127,13 +127,8 @@ async function DocContent({ slug }: { slug: string }) {
                     {children}
                   </p>
                 ),
-                code: ({ node, inline, className, children, ...props }) => (
-                  <code
-                    className={`${className} ${
-                      inline ? "bg-gray-100 rounded px-1" : ""
-                    }`}
-                    {...props}
-                  >
+                code: ({ className, children, ...props }) => (
+                  <code className={`${className}`} {...props}>
                     {children}
                   </code>
                 ),
